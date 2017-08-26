@@ -1,6 +1,16 @@
 # blanco-sfdc-partner-build
 This is a simple project to build sfdc-partner.jar file from partner.wsdl.
 
+This is almost same as below:
+
+```xml
+<dependency>
+    <groupId>com.force.api</groupId>
+    <artifactId>force-partner-api</artifactId>
+    <version>40.0.0</version>
+</dependency>
+```
+
 ## Usage
 
 ### Command
