@@ -16,6 +16,6 @@ mvn antrun:run
 ## Output
 
 ```
-./lib/sfdc-partner.jar
+./target/sfdc-partner.jar
 ```
 

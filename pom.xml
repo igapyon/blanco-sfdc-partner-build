@@ -36,7 +36,7 @@
 						<java classname="com.sforce.ws.tools.wsdlc" fork="true"
 							failonerror="true" maxmemory="768m">
 							<arg value="./meta/partner.wsdl" />
-							<arg value="./lib/sfdc-partner.jar" />
+							<arg value="./target/sfdc-partner.jar" />
 							<classpath>
 								<pathelement path="${classpath}" />
 							</classpath>
