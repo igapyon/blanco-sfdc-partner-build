@@ -1,1 +1,8 @@
-Locate partner.wsdl here.
+Put partner.wsdl in this directory.
+
+1. login.salesforce.com
+2. API WSDL
+3. Partner WSDL
+4. Generate Partner WSDL
+5. File => Save as : partner.wsdl
+6. Put partner.wsdl in this directory.
