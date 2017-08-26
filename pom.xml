@@ -1,18 +1,54 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>blanco.sfdc.partner.build</groupId>
-  <artifactId>blanco-sfdc-partner-build</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>blanco-sfdc-partner-build</name>
-  <url>http://maven.apache.org</url>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>blanco.sfdc.partner.build</groupId>
+	<artifactId>blanco-sfdc-partner-build</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>blanco-sfdc-partner-build</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.force.api/force-wsc -->
+		<dependency>
+			<groupId>com.force.api</groupId>
+			<artifactId>force-wsc</artifactId>
+			<version>40.0.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- usege: mvn antrun:run -->
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<configuration>
+					<target>
+						<echo>usege: mvn antrun:run</echo>
+						<property name="classpath" refid="maven.runtime.classpath" />
+						<java classname="com.sforce.ws.tools.wsdlc" fork="true"
+							failonerror="true" maxmemory="768m">
+							<arg value="./meta/partner.wsdl" />
+							<arg value="./lib/sfdc-partner.jar" />
+							<classpath>
+								<pathelement path="${classpath}" />
+							</classpath>
+						</java>
+						<echo>sfdc-partner.jar was built.</echo>
+					</target>
+				</configuration>
+				<goals>
+					<goal>run</goal>
+				</goals>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
